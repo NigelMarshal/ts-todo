@@ -28,6 +28,11 @@ function App() {
     newTodos[index].complete = !newTodos[index].complete;
     setTodos(newTodos)
   }
+  const removeTodo = (index: number): void => {
+    const newTodos: ITodo[] = [...todos];
+    newTodos.splice(index, 1)
+    setTodos(newTodos)
+  }
   console.log(todos)
   return (
     <div className="App">
@@ -44,6 +49,9 @@ function App() {
             </div>
             <button type="button" onClick={() => completeTodo(index)}>
               {todo.complete ? 'Not done' : "done"}
+            </button>
+            <button type="button" onClick={() => removeTodo(index)}>
+              Remove this item
             </button>
           </div>
         )}
